@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Entertaineon</title>
+<link rel="stylesheet" href="../../static/css/mystyle.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="../../static/css/fontawesome/css/all.min.css" type="text/css" media="screen" />
+</head>
+
+<body>
+<script	src ="script/connector.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$.getJSON('http://www.omdbapi.com/?t=Little+Women&y=2019&plot=full&apikey=a0784ce7', function(data) {
+    // JSON result in `data` variable
+});
+		var test = JSON.parse(data);
+		document.getElementById('poster').src = obj.Poster;
+	</script>
+	<div id ="wrapper">
+		<div align="center">
+            <div><img src="../images/oscar_logo.png" alt="The Oscar Logo" height="100"></div>
+            <div>
+              <h1>The Oscar DataBase</h1>
+            </div>
+		</div>
+		<br>
+		<div align="center" class="searchBar" width="100%">
+    <div class="s003">
+      <form id="test" method="post" action="search.php">
+        <div class="inner-form">
+          <div class="input-field first-wrap">
+            <div class="input-select">
+              <select data-trigger="" name="filterBy" class="choice">
+                <option placeholder="">Filter By</option>
+                <option value="film">Movie</option>
+                <option value="actor">Actor</option>
+                <option value="year">Year</option>
+              </select>
+            </div>
+          </div>
+          <div class="input-field second-wrap">
+            <input id="search" type="text" placeholder="Search" onKeyup="mySearch()" name="searchBy" />
+          </div>
+          <div class="input-field">
+            <button class="btn-search" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+		</div>
+		<div id="content">
+			<div> <img src="https://m.media-amazon.com/images/M/MV5BY2QzYTQyYzItMzAwYi00YjZlLThjNTUtNzMyMDdkYzJiNWM4XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg">
+				<div id="name">
+				</div>
+			</div>
+		</div>			
+	  <footer>
+			<div>
+				<p align="right">
+					Copyright © : scrumdiddlyumptious LLC<br>
+					Contact Us: <a href="mailto:tonyborsh@csus.edu">scrum@diddlyumptious.com</a>
+				</p>
+      		</div>	
+		</footer>
+	</div>
+</body>
+</html>
+</html>
+</body>
+</html>
