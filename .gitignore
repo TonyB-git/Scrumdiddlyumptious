@@ -5,3 +5,4 @@ src/main/resources/static/css/mystyle.css
 *.css
 *.css
 src/main/resources/static/css/mystyle.css
+/target/
