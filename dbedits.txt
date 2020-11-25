@@ -1,0 +1,116 @@
+UPDATE csc131.movies SET rating_id = null where rating_id > 0;
+insert into csc131.movies(movie_id, genre, plot, poster, rated, title, year, rating_id) values(default, null, null, null, null, "Prophet Without Honor", 1939, null);
+update csc131.movies set title = "Wings over Everest" where movie_id = 210;
+update csc131.movies set title = "1000 Dollars a Minute" where movie_id = 214;
+update csc131.movies set title = "Magnificent Brute" where movie_id = 235;
+update csc131.movies set title = "Popular Science" where movie_id = 258;
+update csc131.movies set title = "Popular Science" where movie_id = 317;
+update csc131.movies set title = "Three Little Pigs" where movie_id = 132;
+update csc131.movies set title = "Vogues of 1938" where movie_id = 291;
+update csc131.movies set title = "La Grande Illusion" where movie_id = 372;
+update csc131.movies set title = "Ugly Duckling" where movie_id = 427;
+update csc131.movies set title = "Dark Command" where movie_id = 453;
+update csc131.movies set title = "London Can Take It!" where movie_id = 486;
+update csc131.movies set title = "Quicker'n a Wink" where movie_id = 488;
+update csc131.movies set title = "The Devil and Daniel Webster" where movie_id = 508;
+update csc131.movies set title = "Warclouds in the Pacific" where movie_id = 543;
+update csc131.movies set title = "Mister Gardenia Jones" where movie_id = 647;
+update csc131.movies set title = "Why We Fight" where movie_id = 650;
+update csc131.movies set title = "49th Parallel" where movie_id = 677;
+update csc131.movies set title = "Cavalcade of Dance" where movie_id = 781;
+update csc131.movies set title = "Hymn of the Nations" where movie_id = 831;
+update csc131.movies set title = "And to Think That I Saw It on Mulberry Street" where movie_id = 857;
+update csc131.movies set title = "50th Anniversary of Motion Pictures" where movie_id = 867;
+update csc131.movies set title = "Story of G.I. Joe" where movie_id = 892;
+update csc131.movies set title = "G.I. Honeymoon" where movie_id = 917;
+update csc131.movies set title = "Gypsy Life" where movie_id = 940;
+update csc131.movies set title = "The Poet & Peasant" where movie_id = 941;
+update csc131.movies set title = "Screen Snapshots Series 25, No. 1: 25th Anniversary" where movie_id = 945;
+update csc131.movies set title = "Paramount News Issue #37" where movie_id = 987;
+update csc131.movies set title = "Musical Moments from Chopin" where movie_id = 998;
+update csc131.movies set title = "Goodbye, Miss Turlock" where movie_id = 1065;
+update csc131.movies set title = "What, No Men?" where movie_id = 168;
+update csc131.movies set title = "A Voice Is Born" where movie_id = 1073;
+update csc131.movies set title = "B.F.'s Daughter" where movie_id = 1101;
+update csc131.movies set title = "Rhythm of a City" where movie_id = 1124;
+update csc131.movies set title = "Adventures of Don Juan" where movie_id = 1146;
+update csc131.movies set title = "Boy and the Eagle" where movie_id = 1179;
+update csc131.movies set title = "Bicycle Thieves" where movie_id = 1190;
+update csc131.movies set title = "Steps of Age" where movie_id = 1217;
+update csc131.movies set title = "Beaver Valley" where movie_id = 1235;
+update csc131.movies set title = "Ace in the Hole" where movie_id = 1301;
+
+delete from csc131.movies where movie_id = 738;
+#update associations for the delete
+update csc131.movies set year = 1933 where movie_id = 155;
+update csc131.movies set year = 1933 where movie_id = 157;
+update csc131.movies set year = 1934 where movie_id = 210;
+update csc131.movies set year = 1935 where movie_id = 246;
+update csc131.movies set year = 1935 where movie_id = 255;
+update csc131.movies set year = 1934 where movie_id = 319;
+update csc131.movies set year = 1937 where movie_id = 372;
+update csc131.movies set year = 1925 where movie_id = 660;
+update csc131.movies set year = 1942 where movie_id = 677;
+update csc131.movies set year = 1944 where movie_id = 968;
+update csc131.movies set year = 1945 where movie_id = 1076;
+update csc131.movies set year = 1946 where movie_id = 1191;
+
+
+
+select * from csc131.movies;
+
+//this is for Prophet without Honor
+insert into csc131.movies(movie_id, genre, plot, poster, rated, title, year, rating_id) values(default, null, null, null, null, "Prophet Without Honor", 1939, null);
+insert into csc131.people_awards(people_awards_id, award_id, movie_id, person_id) values(default, 29, 4828, 21);
+insert into csc131.people_movies(people_movies_id, movie_id, person_id) values(default, 4828, 21);
+
+/////////////////////////////////////SECOND HALF/////////////////////////////////////////////////////////
+
+
+update csc131.movies set title = "5 Fingers" where movie_id = 1326;
+update csc131.movies set title = "Epeira Diadema" where movie_id = 1330;
+update csc131.movies set title = "The Miracle of Our Lady of Fatima" where movie_id = 1334;
+update csc131.movies set title = "Light in the Window" where movie_id = 1347;
+update csc131.movies set title = "The Sound Barrier" where movie_id = 1352;
+update csc131.movies set title = "Overture to The Merry Wives of Windsor" where movie_id = 1414;
+update csc131.movies set title = "Robinson Crusoe" where movie_id = 1431;
+
+update csc131.movies set year = 1950 where movie_id = 1318;
+update csc131.movies set year = 1955 where movie_id = 1329;
+update csc131.movies set year = 1950 where movie_id = 1349;
+update csc131.movies set year = 1952 where movie_id = 1439;
+
+/////////////////////////////////////Third HALF/////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
