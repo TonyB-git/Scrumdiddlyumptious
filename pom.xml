@@ -32,6 +32,20 @@
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+		<!-- get rid of this on deployment -->
+		<dependency>
+		    <groupId>com.mashape.unirest</groupId>
+		    <artifactId>unirest-java</artifactId>
+		    <version>1.4.9</version>
+		</dependency>
+		
+	    <!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
+	    <!-- get rid of this on deployment -->
+		<dependency>
+		    <groupId>com.googlecode.json-simple</groupId>
+		    <artifactId>json-simple</artifactId>
+		    <version>1.1.1</version>
+		</dependency>
 		
 		
 		<dependency>
