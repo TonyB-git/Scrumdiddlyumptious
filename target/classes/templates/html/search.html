@@ -11,9 +11,19 @@
 <link rel="stylesheet" href="../../static/css/fontawesome/css/all.min.css" type="text/css" media="screen" />
 </head>
 
-<body>
+<body ng-app="">
 
-
+<script	src="../../static/script/script.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<!--	<script>
+		$.getJSON('http://www.omdbapi.com/?t=Little+Women&y=2019&plot=full&apikey=a0784ce7', function(data) {
+    // JSON result in `data` variable
+});
+		var test = JSON.parse(data);
+		document.getElementById('poster').src = obj.Poster;
+	</script>
+	-->
 	<div id ="wrapper">
 		<div name="ourLogo" align="center">
             <div><img src="../images/oscar_logo.png" alt="The Oscar Logo" height="100"></div>
@@ -21,14 +31,15 @@
               <h1>The Oscar DataBase</h1>
             </div>
 		</div>
+		<br>
 		<div align="center" class="searchBar" width="100%">
     <div class="s003">
-      <form id="mySearch" autocomplete="off">
-        <div class="inner-form">
+      <form id="mySearch" method="get" action="search.html">
+        <div class="inner-form" ng-app ng-controller="Controller">
           <div class="input-field first-wrap">
             <div class="input-select">
-              <select data-trigger="" id="filterBy" name="filterBy" class="choice">
-                <option placeholder="default" value="default">Filter By</option>
+              <select data-trigger="" name="filterBy" class="choice">
+                <option placeholder="" value="default">Filter By</option>
                 <option value="film">Movie</option>
                 <option value="actor">Actor</option>
                 <option value="year">Year</option>
@@ -36,10 +47,10 @@
             </div>
           </div>
           <div class="input-field second-wrap">
-			<input id="search" type="search" placeholder="Search" name="searchBy" onkeypress="return event.keyCode != 13;" required>
+			<input id="search" type="text" placeholder="Search" onKeyup="mySearch()" name="searchBy" />
           </div>
           <div class="input-field">
-            <button id="btn" class="btn-search" type="button">
+            <button class="btn-search" type="submit">
               <i class="fas fa-search"></i>
             </button>
           </div>
@@ -47,8 +58,19 @@
       </form>
 			</div></div><hr color="tan" />
 	<div id="content">
+		<div id="poster"><img alt="Little Women" width="85%" src="https://m.media-amazon.com/images/M/MV5BY2QzYTQyYzItMzAwYi00YjZlLThjNTUtNzMyMDdkYzJiNWM4XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg">
+		</div>
+		<div id="title">
+		</div>
+		<div id="rating">
+		</div>
+		<div id="releaseYear">
+		</div>
+		<div id="actor">
+		</div>
+		<div id="imdbLinks">
+		</div>
 	</div>
-	<br /><br /><br /><br />
 		<hr color="tan" />
 	  <footer>
 			<div>
@@ -59,6 +81,5 @@
       		</div>	
 		</footer>
 	</div>
-	<script	src="../../static/script/script.js"></script>
 </body>
 </html>
