@@ -38,15 +38,76 @@ public class DataLoader {
 						titleStringBuffer.append("%23");
 						break;
 						
+					case '+':
+						titleStringBuffer.append("%2B");
+						break;
+						
 					case ',':
 						titleStringBuffer.append("%2C");
 						break;
+						
 					case '?':
 						titleStringBuffer.append("%3F");
 						break;
 						
-					case 65533:
+					case 'è':
 						titleStringBuffer.append("%C3%A8");
+						break;
+					
+					case 'ö':
+						titleStringBuffer.append("%C3%B6");
+						break;
+						
+					case 'ø':
+						titleStringBuffer.append("%C3%B8");
+						break;
+						
+					case 'í':
+						titleStringBuffer.append("%C3%AD");
+						break;
+						
+					case 'Á':
+						titleStringBuffer.append("%C3%81");
+						break;
+						
+					case '½':
+						titleStringBuffer.append("%C2%BD");
+						break;
+						
+					case 'â':
+						titleStringBuffer.append("%C3%A2");
+						break;
+						
+					case 'î':
+						titleStringBuffer.append("%C3%AE");
+						break;
+						
+					case 'à':
+						titleStringBuffer.append("%C3%A0");
+						break;
+						
+					case 'ä':
+						titleStringBuffer.append("%C3%A4");
+						break;
+					
+					case 'å':
+						titleStringBuffer.append("%C3%A5");
+						break;
+						
+					case 'ñ':
+						titleStringBuffer.append("%C3%B1");
+						break;
+						
+					case 'ó':
+						titleStringBuffer.append("%C3%B3");
+						break;
+						
+					case 'ô':
+						titleStringBuffer.append("%C3%B4");
+						break;
+					
+					case '…':
+						titleStringBuffer.append("%E2%80%A6");
 						break;
 						
 					default:
@@ -82,12 +143,12 @@ public class DataLoader {
 	
 	public static void main(String[] args) throws UnsupportedEncodingException {
 		
-		
 		String address = "http://www.omdbapi.com/?apikey=23cb7c39&t=";
 		CSVParser csvp = new CSVParser("C:\\Users\\reloueslati\\Desktop\\KaggleData_the_oscar_award.csv", true);
-	
+		
 		ArrayList<String> list = csvp.parse();
 		Configuration config = new Configuration();
+		
 		config.configure().addAnnotatedClass(Person.class);
 		config.configure().addAnnotatedClass(Movie.class);
 		config.configure().addAnnotatedClass(PeopleMoviesJunction.class);
@@ -95,28 +156,38 @@ public class DataLoader {
 		config.configure().addAnnotatedClass(PeopleMoviesAwardsJunction.class);
 		config.configure().addAnnotatedClass(Ratings.class);
 		
-		//helps us to get sessions with the database
 		SessionFactory sf = config.buildSessionFactory();
+		
+		//helps us to get sessions with the database
+		
+		
 		
 		//this will store all movies we couldn't add and the reason why
 		HashMap<String, String> unable = new HashMap<>();
 		
 		//these are the keys I have so far but we could probably do this a better way
+		String address2 = "http://www.omdbapi.com/?apikey=889c29b4&t=";
 		String address5 = "http://www.omdbapi.com/?apikey=b5f1e1ce&t=";
 		String address4 = "http://www.omdbapi.com/?apikey=7522967f&t=";
 		String address1 = "http://www.omdbapi.com/?apikey=23cb7c39&t=";
-		String address2 = "http://www.omdbapi.com/?apikey=889c29b4&t=";
 		String address3 = "http://www.omdbapi.com/?apikey=a0784ce7&t=";
+		String address6 = "http://www.omdbapi.com/?apikey=73637ace&t=";
+		String address7 = "http://www.omdbapi.com/?apikey=ed49a6e8&t=";
 		
 		
 		
 		//this is so i can rotate keys when we get a return of "limit exceeded" due to only being able to poll 1000 times a day per key
 		List<String> addresses = new ArrayList<String>();
-		addresses.add(address5);
-		addresses.add(address4);
-		addresses.add(address1);
-		addresses.add(address2);
 		addresses.add(address3);
+		addresses.add(address1); 
+		
+		addresses.add(address6);
+		addresses.add(address2);
+		addresses.add(address4);
+		addresses.add(address5);
+		addresses.add(address7); //used today
+		
+		
 		
 		//this is necessary to create a database insert/update
 		Session session = sf.openSession();
@@ -142,7 +213,7 @@ public class DataLoader {
 		for(int i = 0; i < list.size(); i+=7) {
 			
 			//this just starts me a the index for the save point
-			if(list.get(i+5).equals("The First Piano Quartette")) {
+			if(list.get(i+5).equals("Crazy Heart")) {
 				start = i;
 				break;
 			}
@@ -153,13 +224,20 @@ public class DataLoader {
 			//just using the year and title to form a rest request to imdb
 			int year = Integer.parseInt(list.get(i));
 			String title = list.get(i+5);
+
+			/*if(title.equals("Crazy Heart")) {
+				System.out.println(1960);
+				session.flush();
+			    session.clear();
+				System.exit(50);
+				
+			}*/
 			
-			
-			
-			//cycle api keys every 1000 items 
-			if(i % 7000 == 0 && i != 0) {
+			if(i % 7000 == 0) {
 				count++;
 			}
+			
+			
 			
 			//don't process empty titles
 			if(!title.isEmpty()) {
@@ -204,6 +282,7 @@ public class DataLoader {
 									System.out.println("Couldnt request " + title);
 									System.out.println("repeat item " + repeat);
 									System.out.println(jsonResponse.toString());
+									System.out.println(addresses.get(0) + urlIfyTitle(title) + "&y=" + year);
 									System.exit(5);
 								}
 							}
@@ -331,6 +410,7 @@ public class DataLoader {
 				
 				
 				ratings.setMovie(movie);
+				
 					
 					
 				//update what movie was just processed (for debugging purposes)
@@ -349,10 +429,7 @@ public class DataLoader {
 						System.exit(5);
 					}
 				}
-				
-				
 			}
-				
 			
 		}
 		
