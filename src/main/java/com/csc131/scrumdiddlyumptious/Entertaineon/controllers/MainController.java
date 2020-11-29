@@ -22,10 +22,5 @@ public class MainController {
 	@Autowired
 	UserRepository userRepo;
 	
-	@GetMapping(value = "movies/{id}")
-	public Optional<Movie> getPerson(@PathVariable int id){
-		return userRepo.findById(id);
-	}
 	
-//test
 } 	
