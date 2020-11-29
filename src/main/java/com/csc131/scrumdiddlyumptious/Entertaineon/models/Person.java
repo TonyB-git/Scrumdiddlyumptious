@@ -9,6 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.Set;
 import java.util.HashSet;
 
@@ -61,10 +64,12 @@ public class Person {
 		return name;
 	}
 
+	@JsonBackReference
 	public Set<PeopleMoviesAwardsJunction> getPeopleMoviesAwardsJunctionList() {
 		return peopleMoviesAwardsJunctionList;
 	}
 	
+	@JsonBackReference
 	public Set<PeopleMoviesJunction> getPeopleMoviesJunctionList() {
 		return peopleMoviesJunctionList;
 	}

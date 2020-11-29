@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "ratings")
 public class Ratings {
@@ -26,7 +28,7 @@ public class Ratings {
 	
 	private String metacritic_rating;
 	
-	@OneToOne(mappedBy = "ratings")
+	@OneToOne(mappedBy = "movieRatings")
 	private Movie movie;
 	
 	/*
@@ -61,6 +63,7 @@ public class Ratings {
 		return rotten_tomatoes_rating;
 	}
 	
+	@JsonBackReference
 	public Movie getMovie() {
 		return movie;
 	}

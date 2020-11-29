@@ -12,6 +12,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.Set;
 import java.util.HashSet;
 
@@ -28,14 +32,17 @@ public class Movie {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int movie_id;
 	
+	
 	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "rating_id")
-	private Ratings ratings;
+	private Ratings movieRatings;
 	
-	@OneToMany(mappedBy = "movie", cascade=CascadeType.ALL)
+	
+	@OneToMany(mappedBy = "movie", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
 	private Set<PeopleMoviesAwardsJunction> peopleMoviesAwardsJunctionList = new HashSet<PeopleMoviesAwardsJunction>();
 	
-	@OneToMany(mappedBy = "movie", cascade=CascadeType.ALL)
+	
+	@OneToMany(mappedBy = "movie", fetch = FetchType.LAZY, cascade=CascadeType.ALL)
 	private Set<PeopleMoviesJunction> peopleMoviesJunctionList = new HashSet<PeopleMoviesJunction>();
 	
 	@Column(length = 1000)
@@ -61,7 +68,7 @@ public class Movie {
 	 */
 	
 	public Movie(Ratings ratings, String title, int year, String rated, String genre, String plot, String poster) {
-		this.ratings = ratings;
+		this.movieRatings = ratings;
 		this.title = title;
 		this.year = year;
 		this.rated = rated;
@@ -83,8 +90,9 @@ public class Movie {
 		return movie_id;
 	}
 	
+	@JsonManagedReference
 	public Ratings getRatings() {
-		return ratings;
+		return movieRatings;
 	}
 	
 	public String getTitle() {
@@ -111,10 +119,12 @@ public class Movie {
 		return poster;
 	}
 	
+	@JsonBackReference
 	public Set<PeopleMoviesAwardsJunction> getPeopleMoviesAwardsJunctionList() {
 		return peopleMoviesAwardsJunctionList;
 	}
 	
+	@JsonBackReference
 	public Set<PeopleMoviesJunction> getPeopleMoviesJunctionList() {
 		return peopleMoviesJunctionList;
 	}
@@ -129,7 +139,7 @@ public class Movie {
 	}
 
 	public void setRatings(Ratings ratings) {
-		this.ratings = ratings;
+		this.movieRatings = ratings;
 		//ratings.setMovie(this);
 	}
 
@@ -188,7 +198,7 @@ public class Movie {
 	
 	@Override
 	public String toString() {
-		return "Movies [movie_id=" + movie_id + ", ratings=" + ratings + ", peopleAwardsList=" + peopleMoviesAwardsJunctionList
+		return "Movies [movie_id=" + movie_id + ", ratings=" + movieRatings + ", peopleAwardsList=" + peopleMoviesAwardsJunctionList
 				+ ", peopleMoviesList=" + peopleMoviesJunctionList + ", title=" + title + ", year=" + year + ", rated=" + rated
 				+ ", genre=" + genre + ", plot=" + plot + ", poster=" + poster + "]";
 	}
