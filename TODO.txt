@@ -1,6 +1,0 @@
-TODO:
-
-
-1.fix genre "N/A" entries
-2.scan kaggle data to make sure correct movies are in db
-3.edit awards to not be all caps
