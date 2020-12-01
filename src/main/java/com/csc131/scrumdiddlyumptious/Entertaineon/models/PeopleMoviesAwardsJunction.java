@@ -9,6 +9,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "people_awards")
 public class PeopleMoviesAwardsJunction {
@@ -47,6 +50,7 @@ public class PeopleMoviesAwardsJunction {
 		this.people_awards_id = people_awards_id;
 	}
 
+	@JsonManagedReference
 	public Movie getMovie() {
 		return movie;
 	}
@@ -55,6 +59,7 @@ public class PeopleMoviesAwardsJunction {
 		this.movie = movie;
 	}
 
+	@JsonManagedReference
 	public Person getPerson() {
 		return person;
 	}
@@ -63,6 +68,7 @@ public class PeopleMoviesAwardsJunction {
 		this.person = person;
 	}
 
+	@JsonManagedReference
 	public Awards getAwards() {
 		return awards;
 	}

@@ -35,11 +35,6 @@ public class MainController {
 		return userRepo.getAll();
 	}
 	
-	@GetMapping(value = "movies/{id}")
-	public Optional<Movie> getPerson(@PathVariable int id){
-		return userRepo.findById(id);
-	}
-	
 	@GetMapping(value = "movies/title/{title}")
 	public Optional<Movie> getMovie(@PathVariable String title){
 		return userRepo.getMovieByTitle(title);

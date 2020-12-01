@@ -1,4 +1,13 @@
-C:\Users\tonyb\OneDrive\Documents\GitHub\Scrumdiddlyumptious\src\main\java\com\csc131\scrumdiddlyumptious\Entertaineon\controllers\MainController.java
-C:\Users\tonyb\OneDrive\Documents\GitHub\Scrumdiddlyumptious\src\main\java\com\csc131\scrumdiddlyumptious\Entertaineon\EntertaineonApplication.java
-C:\Users\tonyb\OneDrive\Documents\GitHub\Scrumdiddlyumptious\src\main\java\com\csc131\scrumdiddlyumptious\Entertaineon\models\Movie.java
-C:\Users\tonyb\OneDrive\Documents\GitHub\Scrumdiddlyumptious\src\main\java\com\csc131\scrumdiddlyumptious\Entertaineon\repository\UserRepository.java
+C:\Users\reloueslati\Documents\GitHub\Scrumdiddlyumptious\src\main\java\com\csc131\scrumdiddlyumptious\Entertaineon\repository\UserRepository.java
+C:\Users\reloueslati\Documents\GitHub\Scrumdiddlyumptious\src\main\java\com\csc131\scrumdiddlyumptious\Entertaineon\models\DataLoader.java
+C:\Users\reloueslati\Documents\GitHub\Scrumdiddlyumptious\src\main\java\com\csc131\scrumdiddlyumptious\Entertaineon\controllers\MainController.java
+C:\Users\reloueslati\Documents\GitHub\Scrumdiddlyumptious\src\main\java\com\csc131\scrumdiddlyumptious\Entertaineon\models\Person.java
+C:\Users\reloueslati\Documents\GitHub\Scrumdiddlyumptious\src\main\java\com\csc131\scrumdiddlyumptious\Entertaineon\EntertaineonApplication.java
+C:\Users\reloueslati\Documents\GitHub\Scrumdiddlyumptious\src\main\java\com\csc131\scrumdiddlyumptious\Entertaineon\models\Awards.java
+C:\Users\reloueslati\Documents\GitHub\Scrumdiddlyumptious\src\main\java\com\csc131\scrumdiddlyumptious\Entertaineon\models\CSVParser.java
+C:\Users\reloueslati\Documents\GitHub\Scrumdiddlyumptious\src\main\java\com\csc131\scrumdiddlyumptious\Entertaineon\models\PeopleMoviesAwardsJunction.java
+C:\Users\reloueslati\Documents\GitHub\Scrumdiddlyumptious\src\main\java\com\csc131\scrumdiddlyumptious\Entertaineon\models\DataCleanup.java
+C:\Users\reloueslati\Documents\GitHub\Scrumdiddlyumptious\src\main\java\com\csc131\scrumdiddlyumptious\Entertaineon\models\PeopleMoviesJunction.java
+C:\Users\reloueslati\Documents\GitHub\Scrumdiddlyumptious\src\main\java\com\csc131\scrumdiddlyumptious\Entertaineon\models\RatingsFix.java
+C:\Users\reloueslati\Documents\GitHub\Scrumdiddlyumptious\src\main\java\com\csc131\scrumdiddlyumptious\Entertaineon\models\Ratings.java
+C:\Users\reloueslati\Documents\GitHub\Scrumdiddlyumptious\src\main\java\com\csc131\scrumdiddlyumptious\Entertaineon\models\Movie.java

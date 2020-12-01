@@ -1,5 +1,5 @@
 body {
-	background-color:#121212;
+	background-color:black;
 	color:white;
 	font: alegreya;
 	height: 100%;
@@ -19,8 +19,6 @@ footer{
 	margin-top: auto !important;
 	margin-bottom: 24px !important;
 	vertical-align: bottom;
-	margin-right: 25;
-	float:right;
 }
 input{
 	background-color:darkgray;
@@ -30,10 +28,6 @@ input{
 }
 .logoName{
 	float:right;
-}
-#poster{
-	float:left;
-	margin-left: 25;
 }
 #wrapper {
 	position: fixed;

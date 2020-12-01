@@ -9,6 +9,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "people_movies")
 public class PeopleMoviesJunction {
@@ -23,6 +26,7 @@ public class PeopleMoviesJunction {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "movie_id")
+	
 	private Movie movie;
 	
 	public PeopleMoviesJunction(Person person, Movie movie) {
@@ -42,6 +46,7 @@ public class PeopleMoviesJunction {
 		this.people_movies_id = people_movies_id;
 	}
 
+	@JsonManagedReference
 	public Person getPerson() {
 		return person;
 	}
@@ -50,6 +55,7 @@ public class PeopleMoviesJunction {
 		this.person = person;
 	}
 
+	@JsonManagedReference
 	public Movie getMovie() {
 		return movie;
 	}
