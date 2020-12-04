@@ -15,39 +15,48 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.csc131.scrumdiddlyumptious.Entertaineon.models.*;
 import com.csc131.scrumdiddlyumptious.Entertaineon.repository.UserRepository;
+import com.csc131.scrumdiddlyumptious.Entertaineon.repository.PersonRepository;
 
 @RestController
 @RequestMapping(value="/rest/")
 public class MainController {
 	
 	@Autowired
-	UserRepository userRepo;
+	UserRepository movieRepo;
+	
+	@Autowired 
+	PersonRepository personRepo;
 
 	@GetMapping(value = "/search")
 	public List<Movie> movieQuery(@RequestParam(value = "year", required = false) Integer year, @RequestParam(value = "award", required = false) String award){
-		return userRepo.getMovieByQuery(year, award);
+		return movieRepo.getMovieByQuery(year, award);
 	}
 
 	@GetMapping(value = "movies/all")
 	@ResponseBody
 	public List<Movie> getAll(){
 		System.out.println("here");
-		return userRepo.getAll();
+		return movieRepo.getAll();
 	}
 	
 	@GetMapping(value = "movies/title/{title}")
 	public Optional<Movie> getMovie(@PathVariable String title){
-		return userRepo.getMovieByTitle(title);
+		return movieRepo.getMovieByTitle(title);
 	}
 	
 	@GetMapping(value = "movies/year/{year}")
 	public List<Movie> getMovieByYear(@PathVariable int year){
-		return userRepo.getMoviesByYear(year);
+		return movieRepo.getMoviesByYear(year);
 	}
 	
 	@GetMapping(value = "movies/actor/{actor}")
 	public List<Movie> getMoviesByActor(@PathVariable String actor){
-		return userRepo.findByActor(actor);
+		return movieRepo.findByActor(actor);
+	}
+	
+	@GetMapping(value = "/actors/all")
+	public List<Person> getAllActors(){
+		return personRepo.getAll();
 	}
 	
 } 	
