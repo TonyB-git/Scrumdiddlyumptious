@@ -7,37 +7,46 @@
 <meta name="description" content="Oscar Movie Lookup">
 <meta name="keywords" content="Movies, Actors, Actoresses, Box Office, Reviews, Oscars, Rewards">
 <title>Entertaineon</title>
-<link rel="stylesheet" href="../../static/css/mystyle.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="../../static/css/fontawesome/css/all.min.css" type="text/css" media="screen" />
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<link rel="stylesheet" href="./css/mystyle.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="./css/fontawesome/css/all.min.css" type="text/css" media="screen" />
+<link rel="shortcut icon" href="">
 </head>
-<!--stuff-->
+
 <body>
-
-
 	<div id ="wrapper">
 		<div name="ourLogo" align="center">
-            <div><img src="../images/oscar_logo.png" alt="The Oscar Logo" height="100"></div>
+            <div><img src="./images/oscar_logo.png" alt="The Oscar Logo" height="100"></div>
             <div>
               <h1>The Oscar DataBase</h1>
             </div>
 		</div>
 		<div align="center" class="searchBar" width="100%">
     <div class="s003">
-      <form id="mySearch" autocomplete="off">
+      <form id="mySearch" autocomplete="off" style="flex-direction: column; align-items: stretch;">
         <div class="inner-form">
           <div class="input-field first-wrap">
             <div class="input-select">
               <select data-trigger="" id="filterBy" name="filterBy" class="choice">
                 <option placeholder="default" value="default">Filter By</option>
-                <option value="film">Movie</option>
                 <option value="actor">Actor</option>
+				<option value="advanced">Advanced</option>
+				<option value="award">Award</option>
+				<option value="genre">Genre</option>
+				<option value="film">Movie</option>
                 <option value="year">Year</option>
               </select>
             </div>
           </div>
-          <div class="input-field second-wrap">
-			<input id="search" type="search" placeholder="Search" name="searchBy" onkeypress="return event.keyCode != 13;" required>
-          </div>
+		<div id="standard" class="input-field second-wrap" style="display: block">
+			<input id="search" type="text" placeholder="Search" name="searchBy" onkeypress="return event.keyCode != 13;" required>
+		</div>
+		<div id="advanced" style="display: none" class="input-field second-wrap">
+			<span float="left"><input id="advanceSearchYear" type="text" placeholder="Year" name="searchByYear" onkeypress="return event.keyCode != 13;" required></span>
+			<span float="right"><input id="advanceSearchAward" type="text" placeholder="Award" name="searchByAward" onkeypress="return event.keyCode != 13;" required></span>
+		</div>
           <div class="input-field">
             <button id="btn" class="btn-search" type="button">
               <i class="fas fa-search"></i>
@@ -47,8 +56,8 @@
       </form>
 			</div></div><hr color="tan" />
 	<div id="content">
+		<span><p align="center" id="loader" class="loader"></p></span>
 	</div>
-	<br /><br /><br /><br />
 		<hr color="tan" />
 	  <footer>
 			<div>
@@ -59,6 +68,6 @@
       		</div>	
 		</footer>
 	</div>
-	<script	src="../../static/script/script.js"></script>
+	<script	type ="text/javascript" src="./script/script.js"></script>
 </body>
 </html>
