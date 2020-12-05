@@ -16,16 +16,20 @@ import org.springframework.web.bind.annotation.RestController;
 import com.csc131.scrumdiddlyumptious.Entertaineon.models.*;
 import com.csc131.scrumdiddlyumptious.Entertaineon.repository.UserRepository;
 import com.csc131.scrumdiddlyumptious.Entertaineon.repository.PersonRepository;
+import com.csc131.scrumdiddlyumptious.Entertaineon.repository.AwardsRepository;
 
 @RestController
 @RequestMapping(value="/rest/")
-public class MainController {
+public class MainController<movieRepo> {
 	
 	@Autowired
 	UserRepository movieRepo;
 	
 	@Autowired 
 	PersonRepository personRepo;
+	
+	@Autowired 
+	AwardsRepository awardsRepo;
 
 	@GetMapping(value = "/search")
 	public List<Movie> movieQuery(@RequestParam(value = "year", required = false) Integer year, @RequestParam(value = "award", required = false) String award){
@@ -59,4 +63,17 @@ public class MainController {
 		return personRepo.getAll();
 	}
 	
+	@GetMapping(value = "/awards/all")
+	public List<Awards> getAllAwards(){
+		return awardsRepo.getAll();
+	}
+
+	@GetMapping(value = "movies/award/{award}")
+	public List<Movie> getMoviesByAwards(@PathVariable String award){
+		return movieRepo.findByAward(award);
+	}
+	@GetMapping(value = "movies/genre/{genre}")
+	public List<Movie> getMoviesByGenre(@PathVariable String genre){
+		return movieRepo.findByGenre(genre);
+	}
 } 	

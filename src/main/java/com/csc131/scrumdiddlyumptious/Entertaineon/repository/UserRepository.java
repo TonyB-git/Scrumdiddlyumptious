@@ -46,4 +46,11 @@ public interface UserRepository extends JpaRepository<Movie, Integer> {
 			+ "WHERE (t1.movie_id = t2.movie_id AND t2.person_id = t3.person_id AND t3.name = ?1);", nativeQuery = true)
 	List<Movie> findByActor(String actor);
 	
+	@Query(value = "SELECT t1.* "  
+			+ "FROM movies t1, people_awards t2, awards t3 "  
+			+ "WHERE (t1.movie_id = t2.movie_id AND t2.award_id = t3.award_id AND t3.type = ?1);", nativeQuery = true)
+	List<Movie> findByAward(String award);
+	
+	@Query(value = "SELECT * FROM movies WHERE genre = ?1", nativeQuery = true)
+	List<Movie> findByGenre(String genre);
 }

@@ -11,5 +11,6 @@
 		<!-- Encryption -->
 		<property name="connection.password">Gg55!!15*RQ4</property>
 		<property name="hbm2ddl.auto">update</property>
+		<property name="hibernate.hbm2ddl.auto">validate</property>
     </session-factory>
 </hibernate-configuration>
