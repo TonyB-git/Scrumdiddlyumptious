@@ -49,8 +49,7 @@ public class MainController<movieRepo> {
 	@GetMapping(value = "movies/title/{title}")
 	public List<Movie> getMovie(@PathVariable String title){
 		String result = java.net.URLDecoder.decode(title, StandardCharsets.UTF_8);
-		System.out.println(result);
-		return movieRepo.getMovieByTitle(title);
+		return movieRepo.getMovieByTitle(result);
 	}
 	
 	@GetMapping(value = "movies/year/{year}")
