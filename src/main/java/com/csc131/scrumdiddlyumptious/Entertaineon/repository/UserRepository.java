@@ -31,7 +31,7 @@ public interface UserRepository extends JpaRepository<Movie, Integer> {
 	
 	// Returns the specified movie by its title and all of its associated columns in the movie table
 	@Query(value = "SELECT * FROM movies WHERE title = ?1", nativeQuery = true)
-	Optional<Movie> getMovieByTitle(String title);
+	List<Movie> getMovieByTitle(String title);
 	
 	
 	// Returns every award winning film from the specified year

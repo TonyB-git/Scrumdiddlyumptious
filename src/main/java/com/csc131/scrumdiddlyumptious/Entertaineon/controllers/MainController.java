@@ -1,5 +1,6 @@
 package com.csc131.scrumdiddlyumptious.Entertaineon.controllers;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -21,6 +22,8 @@ import com.csc131.scrumdiddlyumptious.Entertaineon.repository.AwardsRepository;
 @RestController
 @RequestMapping(value="/rest/")
 public class MainController<movieRepo> {
+	
+	
 	
 	@Autowired
 	UserRepository movieRepo;
@@ -44,7 +47,9 @@ public class MainController<movieRepo> {
 	}
 	
 	@GetMapping(value = "movies/title/{title}")
-	public Optional<Movie> getMovie(@PathVariable String title){
+	public List<Movie> getMovie(@PathVariable String title){
+		String result = java.net.URLDecoder.decode(title, StandardCharsets.UTF_8);
+		System.out.println(result);
 		return movieRepo.getMovieByTitle(title);
 	}
 	

@@ -1,14 +1,12 @@
 com\csc131\scrumdiddlyumptious\Entertaineon\models\CSVParser.class
 com\csc131\scrumdiddlyumptious\Entertaineon\EntertaineonApplication.class
 com\csc131\scrumdiddlyumptious\Entertaineon\models\Ratings.class
-com\csc131\scrumdiddlyumptious\Entertaineon\models\DataLoader.class
 com\csc131\scrumdiddlyumptious\Entertaineon\models\PeopleMoviesAwardsJunction.class
 com\csc131\scrumdiddlyumptious\Entertaineon\repository\AwardsRepository.class
-com\csc131\scrumdiddlyumptious\Entertaineon\models\DataCleanup.class
 com\csc131\scrumdiddlyumptious\Entertaineon\repository\UserRepository.class
 com\csc131\scrumdiddlyumptious\Entertaineon\repository\PersonRepository.class
 com\csc131\scrumdiddlyumptious\Entertaineon\models\PeopleMoviesJunction.class
-com\csc131\scrumdiddlyumptious\Entertaineon\models\RatingsFix.class
+com\csc131\scrumdiddlyumptious\Entertaineon\controllers\WebController.class
 com\csc131\scrumdiddlyumptious\Entertaineon\models\Awards.class
 com\csc131\scrumdiddlyumptious\Entertaineon\models\Movie.class
 com\csc131\scrumdiddlyumptious\Entertaineon\models\Person.class
